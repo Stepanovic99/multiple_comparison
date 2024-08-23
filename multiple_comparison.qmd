@@ -32,22 +32,26 @@ execute:
 
 -   get an understanding of issues related to multiple comparisons in clinical trials
 
-The theoretical background is based on @schumacher2008methodik and \@@moye200721.
+The theoretical background is based on @schumacher2008methodik and @moye200721.
 
 # Theoretical background
 
 @moye200721 states: "Multiple comparisons (or multiple testing situations) are simply the collection of statistical hypothesis tests that are executed at the conclusion of a research effort." This might for example be the case when there are multiple endpoints or when conducting subgroup analyses.
 
 ::: callout-note
-Recall that a type 1 error (or false positive) is the probability of rejecting the null although the null is true. $\alpha$, the significance level, is the upper acceptable limit for a type 1 error.
+Recall that a *type 1 error* (or false positive) is the probability of rejecting the null although the null is true. $\alpha$, the significance level, is the upper acceptable limit for a type 1 error.
 :::
 
-@moye200721 furhter states: "The process is straightforward. The investigators should first identify each of the analyses that they wish to assess at the study’s conclusion. Once this exhaustive process of analysis identification has completed, the investigators should then choose the small number of endpoints for which a type I error rate will be allocated. It is over this final subset of endpoints that the overall type I error level will be controlled. Other analyses that cannot be recognized prospectively will fall into the class of exploratory analyses."
+::: callout-note
+Recall that the p-value is defined as the probability of getting a test statistic as extreme or more extreme than the one we observed, given the $H_0$ is true.
+:::
+
+@moye200721 further states: "The process is straightforward. The investigators should first identify each of the analyses that they wish to assess at the study’s conclusion. Once this exhaustive process of analysis identification has completed, the investigators should then choose the small number of endpoints for which a type I error rate will be allocated. It is over this final subset of endpoints that the overall type I error level will be controlled. Other analyses that cannot be recognized prospectively will fall into the class of exploratory analyses."
 
 ## Difference global and multiple $\alpha$
 
-Suppose we have k null hypotheses $H^0 ... H^k$, then the global $\alpha$ is the limit for the probability of rejecting *at least* one of these hypotheses although they are all true. The multiple $\alpha$ is the limit for the probability of rejecting *at least* one from a **subset** of these hypotheses although they are true.
-In case of k multiple null hypotheses, the multiple $\alpha$ is calculated as $$1-(1-\alpha)^k$$
+Suppose we have k null hypotheses $H^0 ... H^k$, then the global $\alpha$ is the limit for the probability of rejecting *at least* one of these hypotheses although they are all true. The multiple $\alpha$ is the limit for the probability of rejecting *at least* one from a **subset** of these hypotheses although they are true. In case of k multiple null hypotheses, the multiple $\alpha$ is calculated as $$1-(1-\alpha)^k$$ This equation (there is at least one type 1 error among the hypotheses tests) is also known as the familywise type 1 error level $\xi$ (after Bonferroni). An assumption is, that each test is independent.
+
 
 
 ::: column-margin
