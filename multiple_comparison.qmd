@@ -52,11 +52,37 @@ Recall that the p-value is defined as the probability of getting a test statisti
 
 Suppose we have k null hypotheses $H^0 ... H^k$, then the global $\alpha$ is the limit for the probability of rejecting *at least* one of these hypotheses although they are all true. The multiple $\alpha$ is the limit for the probability of rejecting *at least* one from a **subset** of these hypotheses although they are true. In case of k multiple null hypotheses, the multiple $\alpha$ is calculated as $$1-(1-\alpha)^k$$ This equation (there is at least one type 1 error among the hypotheses tests) is also known as the familywise type 1 error level $\xi$ (after Bonferroni). An assumption is, that each test is independent.
 
+# Single-step tests
+This paragraph refers to @dmitrienko2017analysis.
 
-
-::: column-margin
-Therefore, survival function and hazard function are related.
+## Bonferroni
+The Bonferroni test rejects $H_i$ if $p_i <= \alpha / m$ where i=1,...,m. The individual adjusted p-value is
+$$\tilde{p}=mp_i, i=1,...,m$$ 
+## Sidak
+The Sidak test rejects $H_i$ if $p_i <= 1-(1-\alpha)^{1/m} $ where i=1,...,m. The individual adjusted p-value is
+$$\tilde{p}=1-(1-p_i)^m, i=1,...,m$$ 
+::: callout-note
+Both tests can also be used to test the global null hypothesis. The global null is rejected whenever any of the individual null hypotheses is rejected.
+For the Bonferroni method the adjusted p-value for the global test is
+$$\tilde{p}=m min(p_1,...,p_m)$$
+and for the Sidak method it is
+$$\tilde{p}=1-(1-min(p_1,...,p_m))^m$$
 :::
+
+# Closed testing methods
+Hypotheses are connected in a closed family. 
+
+## Holm stepwise test
+Compute the p-value from the Bonferroni global test. Reject H if $\tilde{p}<=\alpha$. 
+For example, consider the intersection hypotheses $H_{LM}$, i.e. {$H_L$ and $H_M$}. The intersection hypothesis consists of 2 original hypotheses $H_L$ and $H_M$. Reject the hypothesis if $\tilde{p}<=\alpha$.
+
+Other closed testing methods are the Hochberg test or the Hommel test.
+
+# Gatekeeping strategies
+Here, in contrast to closed tests, the hypotheses refer to hierarchically ordered endpoints (in closed tests the ordering of the hypotheses is data driven) The trial endpoints are classified in a hierarchically manner.
+The primary hypothesis serves as a gatekeeper and the secondary hypotheses will be tested only after the primary hypothesis has been rejected. 
+
+
 
 # References {.unnumbered}
 
